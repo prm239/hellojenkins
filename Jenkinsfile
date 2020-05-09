@@ -17,7 +17,7 @@ pipeline {
 
             steps {
                 
-		sh 'docker stop hello && docker rm hello'
+		sh 'docker ps | grep hello && docker stop hello && docker rm hello'
 		sh 'docker run --name hello -p 8000:5000 hello:$BUILD_NUMBER'
             }
         }
